@@ -5,7 +5,7 @@ a collection of rust like utilities like Result, Option, and some types (not yet
 ## install
 
 ```
-yarn add rustic
+yarn add rustic-ts
 ```
 
 ## usage
