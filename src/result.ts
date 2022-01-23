@@ -1,5 +1,5 @@
-export class Result<T, S> {
-  public value: T | S;
+export class Result<T, E> {
+  public value: T | E;
   public type: string;
 
   constructor(value: T) {
@@ -22,13 +22,13 @@ export class Ok<T> extends Result<T, any> {
   }
 }
 
-export class Err<S> extends Result<any, S> {
-  constructor(value: S) {
+export class Err<E> extends Result<any, E> {
+  constructor(value: E) {
     super(value);
   }
 }
 
-export type ResultPattern<T, S> = {
+export type ResultPattern<T, E> = {
   Ok: (value: T) => any;
-  Err: (value: S) => any;
+  Err: (value: E) => any;
 };
