@@ -16,12 +16,12 @@ yarn add rustic-ts
 - it can be either Ok obj or Err obj like this:
 
 ```typescript
-function str_to_number (str: string): Result<number, Error> {
-    let num = parseInt(str);
-    if (isNaN(num)) {
-        return Err(Error("not a number"))
-    }
-    return Ok(parseInt(str))
+function str_to_number(str: string): Result<number, Error> {
+  let num = parseInt(str)
+  if (isNaN(num)) {
+    return Err(Error("not a number"))
+  }
+  return Ok(parseInt(str))
 }
 ```
 
@@ -53,15 +53,15 @@ let optional_number: Option<number> = Some(1)
 - `trycatch_to_result(T) -> Result<T, Error>` is a function that can be used to convert a function that can throw an error to a function that returns a result.
 
 ```typescript
-function str_to_number (str: string): number {
-    let num = parseInt(str);
-    if (isNaN(num)) {
-        throw Error("not a number")
-    }
-    return num
+function str_to_number(str: string): number {
+  let num = parseInt(str)
+  if (isNaN(num)) {
+    throw Error("not a number")
+  }
+  return num
 }
 
-let result = trycatch_to_result<number, Error>(str_to_number, "1")
+let result = trycatch_to_result<number, Error>(() => str_to_number("1"))
 ```
 
 ## development
@@ -72,7 +72,7 @@ let result = trycatch_to_result<number, Error>(str_to_number, "1")
 yarn install
 ```
 
-### test 
+### test
 
 ```
 npm t
